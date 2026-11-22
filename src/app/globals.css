@@ -275,26 +275,19 @@ body::after {
     inset 0 0 0 8px rgba(26, 20, 16, 0.16);
 }
 
-.destination-art {
-  --scene-dune: color-mix(in srgb, var(--scene-ground-2) 80%, white);
+.photo-art img {
+  filter: saturate(0.9) contrast(1.035) sepia(0.04);
 }
 
-.dish-art-vermilion {
-  --dish-wash: color-mix(in srgb, var(--color-vermilion) 12%, var(--color-paper-light));
-  --dish-glow: color-mix(in srgb, var(--color-vermilion) 25%, transparent);
-  --dish-bowl: color-mix(in srgb, var(--color-vermilion) 68%, var(--color-ink));
-}
-
-.dish-art-ochre {
-  --dish-wash: color-mix(in srgb, var(--color-ochre) 13%, var(--color-paper-light));
-  --dish-glow: color-mix(in srgb, var(--color-ochre) 28%, transparent);
-  --dish-bowl: color-mix(in srgb, var(--color-ochre) 60%, var(--color-ink));
-}
-
-.dish-art-teal {
-  --dish-wash: color-mix(in srgb, var(--color-teal) 12%, var(--color-paper-light));
-  --dish-glow: color-mix(in srgb, var(--color-teal) 25%, transparent);
-  --dish-bowl: color-mix(in srgb, var(--color-teal) 65%, var(--color-ink));
+.photo-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.12;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23p)' opacity='0.55'/%3E%3C/svg%3E");
 }
 
 .route-band {

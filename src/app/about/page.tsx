@@ -5,6 +5,7 @@ import { attractions } from "@/content/attractions";
 import { foods } from "@/content/foods";
 import { routes } from "@/content/routes";
 import { dialectEntries } from "@/content/dialect";
+import { IMAGE_CREDITS } from "@/content/imageCredits";
 
 export const metadata: Metadata = {
   title: "关于本站",
@@ -66,13 +67,63 @@ export default function AboutPage() {
           <section className="grid gap-3 border-b border-line py-7 md:grid-cols-[180px_1fr] md:gap-8">
             <div>
               <p className="font-mono-ui text-[10px] tracking-[0.2em] text-ink-500">05</p>
+              <h2 className="mt-1.5 font-display text-[20px] tracking-[0.04em]">实景图片来源</h2>
+            </div>
+            <div className="max-w-2xl">
+              <p className="text-[12px] leading-[2] text-ink-700">
+                景区与美食页的写实照片均下载为站内静态资源，原始文件来自 Wikimedia Commons。
+                下面保留作者、开放许可与原始文件页；标注「实景示意」的图片用于缺少对应开放授权照片的页面。
+              </p>
+              <ol className="mt-4 divide-y divide-line border-y border-line">
+                {IMAGE_CREDITS.map((credit) => (
+                  <li
+                    key={credit.sourceUrl}
+                    className="grid gap-1 py-2.5 text-[11px] leading-[1.7] text-ink-500 sm:grid-cols-[1fr_auto] sm:gap-4"
+                  >
+                    <span>
+                      <span className="text-ink-700">{credit.asset}</span>
+                      <span className="mx-1.5 text-line-strong">/</span>
+                      {credit.creator}
+                    </span>
+                    <span className="font-mono-ui text-[10px]">
+                      <a
+                        href={credit.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline decoration-line-strong underline-offset-2 hover:text-vermilion"
+                      >
+                        原图
+                      </a>
+                      <span className="mx-1.5">·</span>
+                      {credit.licenseUrl ? (
+                        <a
+                          href={credit.licenseUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="underline decoration-line-strong underline-offset-2 hover:text-vermilion"
+                        >
+                          {credit.license}
+                        </a>
+                      ) : (
+                        credit.license
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+
+          <section className="grid gap-3 border-b border-line py-7 md:grid-cols-[180px_1fr] md:gap-8">
+            <div>
+              <p className="font-mono-ui text-[10px] tracking-[0.2em] text-ink-500">06</p>
               <h2 className="mt-1.5 font-display text-[20px] tracking-[0.04em]">免责声明</h2>
             </div>
             <ul className="max-w-2xl space-y-1.5 text-[12px] leading-[1.95] text-ink-700">
               <li>· 本站为个人学习与演示项目，不提供商业旅游服务。</li>
               <li>· 门票、开放时间、交通班次以景区与官方发布为准。</li>
               <li>· 方言内容存在区域差异，标注了置信度，仅供参考。</li>
-              <li>· 站内不使用第三方图片，避免版权问题；景区实拍需授权后替换。</li>
+              <li>· 图片授权与署名见上方清单；再次转载时请同时遵守对应许可。</li>
             </ul>
           </section>
 

@@ -32,7 +32,7 @@ page.on("response", (response) => {
 });
 
 for (const pathname of pages) {
-  const response = await page.goto(`${base}${pathname}/`, {
+  const response = await page.goto(`${base}${pathname}`, {
     waitUntil: "networkidle",
     timeout: 45_000,
   });

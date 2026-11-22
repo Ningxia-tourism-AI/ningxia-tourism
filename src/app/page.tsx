@@ -90,7 +90,7 @@ export default function HomePage() {
                   <RockGlyph kind="sun" className="h-6 w-6" strokeWidth={2.6} />
                 </span>
                 <figcaption className="mt-3 flex items-start justify-between gap-4 font-mono-ui text-[10px] uppercase tracking-[0.14em] text-ink-500">
-                  <span>拓片 01 / 贺兰口岩画 · 太阳神</span>
+                  <span>实景 01 / 沙坡头 · 黄河与腾格里沙漠</span>
                   <span className="text-right leading-relaxed">
                     38.47°N
                     <br />

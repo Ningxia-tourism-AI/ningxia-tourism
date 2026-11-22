@@ -21,7 +21,7 @@ export interface Attraction {
   bestSeason: string;
   coords: { lat: number; lng: number };
   tags: string[];
-  /** 预留图片位：拿到授权照片后填入，站内当前用渐变插画占位 */
+  /** 可选图片覆盖；默认读取 /images/attractions/<slug>.jpg */
   image?: string;
   sources: Citation[];
   verified: boolean;

@@ -3,7 +3,7 @@ import { mkdir } from "node:fs/promises";
 import path from "node:path";
 
 const BASE = process.env.SCREENSHOT_BASE || "http://127.0.0.1:3000";
-const OUT = path.resolve("docs/screenshots");
+const OUT = path.resolve(process.env.SCREENSHOT_OUT || "docs/screenshots");
 
 const PAGES = [
   { path: "/", name: "01-home" },
@@ -71,7 +71,7 @@ async function main() {
         const total = document.documentElement.scrollHeight;
         for (let y = 0; y <= total; y += step) {
           window.scrollTo({ top: y, behavior: "instant" });
-          await new Promise((r) => setTimeout(r, 90));
+          await new Promise((r) => setTimeout(r, 160));
         }
         window.scrollTo({ top: 0, behavior: "instant" });
       });
@@ -83,7 +83,7 @@ async function main() {
       if (viewport.label === "desktop" && target.path === "/routes/plan") {
         try {
           await page.getByRole("button", { name: "生成行程" }).click();
-          await page.waitForSelector("text=行程建议", { timeout: 8000 });
+          await page.waitForSelector("text=已按当前条件生成", { timeout: 8000 });
           await page.evaluate(() => window.scrollTo(0, 0));
           await page.waitForTimeout(150);
           await page.screenshot({ path: path.join(OUT, "07b-route-plan-result-desktop.png"), fullPage: true });
