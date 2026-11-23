@@ -64,7 +64,7 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
           NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.site_url }}
-          NEXT_PUBLIC_API_BASE_URL: ${{ vars.NEXT_PUBLIC_API_BASE_URL }}
+         NEXT_PUBLIC_API_BASE_URL: ${{https://ningxia-tourism-api.onrender.com}}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
