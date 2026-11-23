@@ -13,7 +13,7 @@ export default function AskPage() {
       <PageHeader
         eyebrow="资料问答 / ASK"
         title="问清这一趟"
-        description="只依据站内资料作答并给出来源。门票、玩法、路线和方言都可以问；无法确认的内容会直接说不知道。"
+        description="答案只从这片土地的资料里找：景区、吃食、路线与方言，都带着出处。门票、玩法、方言尽管问，查不到的，它也会直说不知道。"
         aside={
           <div className="border-y border-line py-4">
             <p className="font-ui text-[11px] text-vermilion">回答范围</p>
@@ -27,9 +27,9 @@ export default function AskPage() {
 
         <div className="mt-12 grid gap-6 border-t border-line pt-8 md:grid-cols-3">
           {[
-            ["语料", "146 家 A 级景区、85 条可溯源方言词条、10 篇景区介绍、20 道美食、8 条路线。"],
-            ["边界", "不回答实时天气、班次、实时票价，也不回答与宁夏文旅无关的问题。"],
-            ["模式", "未配置大模型 key 时为本地检索；配置后切换大模型，超纲问题仍然拒答。"],
+            ["语料", "146 家 A 级景区，85 条能追到出处的方言词条；另有 10 篇景区散记、20 道吃食、8 条路线。"],
+            ["边界", "天气、班次、当日票价，这里没有；与宁夏无关的问题，也不勉强作答。"],
+            ["模式", "检索负责找到依据，模型负责把话说顺；资料之外的，仍然直言不答。"],
           ].map(([title, body]) => (
             <div key={title} className="border-l-2 border-line pl-4 first:border-vermilion">
               <p className="font-ui text-[11px] tracking-[0.08em] text-ink-500">{title}</p>

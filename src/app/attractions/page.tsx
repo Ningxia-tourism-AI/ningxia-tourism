@@ -23,7 +23,7 @@ export default function AttractionsPage() {
               <br />再看山与城
             </h1>
             <p className="mt-6 max-w-2xl border-l border-line-strong pl-4 text-[14px] leading-[1.95] text-ink-500">
-              从腾格里沙漠到黄河峡谷，从贺兰山岩画到六盘山森林。按城市和类型筛选，优先比较季节、车程与门票。
+              沙从腾格里漫过来，河在峡谷里拐了一道弯；山是贺兰山上的凿痕，林是六盘山间的松风。按城市与类型慢慢筛，季节、车程与门票，都是要算进去的事。
             </p>
           </div>
 

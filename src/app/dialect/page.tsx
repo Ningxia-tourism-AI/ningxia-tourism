@@ -15,7 +15,7 @@ export default function DialectPage() {
       <PageHeader
         eyebrow="听懂 / DIALECT"
         title="先听懂宁夏话"
-        description="北部川区属兰银官话，南部更接近中原官话，各地说法并不统一。本页以银川话为主，词条标注区域与置信度，存疑的请以当地说法为准。"
+        description="黄河穿过的北边，说的是兰银官话；六盘山下的南边，更近中原官话。同一句家常话，银川与固原未必同音。这里以银川话为主，每条都标了来处与把握程度——听不准的，还得以当地人的说法为准。"
         aside={
           <div className="border-y border-line py-4">
             <p className="font-display text-[40px] leading-none">85</p>

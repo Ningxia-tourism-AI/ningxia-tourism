@@ -92,7 +92,8 @@ export default function AboutPage() {
 
                 <dt className="font-medium">图片</dt>
                 <dd className="text-ink-500">
-                  景区与美食照片来自 Wikimedia Commons（署名见下节）；首页轮播为实地拍摄。
+                  分三类：首页轮播与部分景点为实地拍摄；景区与美食页的写实照片主要取自 Wikimedia Commons（署名见下节）；
+                  少量补充图来自小红书等公开网络整理，仅用于非商业的学习与演示，版权归原作者，如涉侵权可随时删除。
                 </dd>
               </dl>
             </div>
@@ -105,8 +106,9 @@ export default function AboutPage() {
             </div>
             <div className="max-w-2xl">
               <p className="text-[12px] leading-[2] text-ink-700">
-                景区与美食页的写实照片均下载为站内静态资源，原始文件来自 Wikimedia Commons。
-                下面保留作者、开放许可与原始文件页；标注「实景示意」的图片用于缺少对应开放授权照片的页面。
+                景区与美食页的写实照片已下载为站内静态资源，主要来自 Wikimedia Commons，少量来自公开网络（含小红书）整理；
+                首页轮播为实地拍摄。下面保留可考的作者、开放许可与原始文件页；标注「实景示意」的图片用于缺少对应开放授权照片的页面。
+                网络来源的图片仅用于非商业的学习与演示，版权归原作者所有，如涉侵权可联系删除。
               </p>
               <ol className="mt-4 divide-y divide-line border-y border-line">
                 {IMAGE_CREDITS.map((credit) => (
