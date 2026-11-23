@@ -16,7 +16,7 @@ const SECTIONS = [
   {
     no: "01",
     title: "内容从哪来",
-    body: "景区、美食、路线内容基于政府与文旅部门的公开信息、百科条目与媒体报道整理；方言词条参考西北官话的公开研究资料，并以银川话为主。每一条内容都记录了来源，页面上标注「待核实」表示尚未逐条人工确认。",
+    body: "景区、美食、路线内容基于政府与文旅部门的公开信息、百科条目与媒体报道整理；方言词条参考《银川方言词典》《固原方言四字格词语的结构和语义特点》与中卫话的公开整理，覆盖银川、固原、中卫三地。每一条内容都记录了来源，页面上标注「待核实」表示尚未逐条人工确认。",
   },
   {
     no: "02",
@@ -26,21 +26,22 @@ const SECTIONS = [
   {
     no: "03",
     title: "站内问答怎么工作",
-    body: "默认使用本地检索：把问题与站内内容做分词匹配（bigram + BM25），抽出最相关的段落作答并给出引用；相关度太低时直接拒答。配置大模型接口后，会把同样的检索结果作为上下文交给模型组织语言，但超纲问题仍然拒答——减少幻觉比多答几句更重要。",
+    body: "问答由后端服务完成：先用关键词命中景区库（146 家）与方言词条库（85 条），把命中结果作为上下文交给大模型（DeepSeek）组织语言；未配置后端时退回浏览器本地检索（bigram + BM25）。相关度太低时如实说明「暂未收录」，不编造门票、开放时间与坐标。",
   },
   {
     no: "04",
     title: "怎么改内容",
-    body: "内容都在 src/content/ 下的 TypeScript 文件里，按类型定义直接改；每条都有 sources 与 verified 字段，确认后把 verified 改成 true，页面上的「待核实」标记就会消失。",
+    body: "精选内容在 src/content/ 的 TypeScript 文件里，景区与方言词条在数据库（本地 MySQL / 云端 SQLite）里；每条都有 sources 与 verified 字段，确认后把 verified 改成 true，页面上的「待核实」标记就会消失。",
   },
 ];
 
 export default function AboutPage() {
   const stats = [
-    ["景区", attractions.length],
+    // 景区与方言词条取数据库统计（146 家 A 级景区 / 85 条可溯源词条）
+    ["景区", 146],
     ["美食", foods.length],
     ["路线", routes.length],
-    ["方言词条", dialectEntries.length],
+    ["方言词条", 85],
   ] as const;
 
   return (
@@ -67,6 +68,39 @@ export default function AboutPage() {
           <section className="grid gap-3 border-b border-line py-7 md:grid-cols-[180px_1fr] md:gap-8">
             <div>
               <p className="font-mono-ui text-[10px] tracking-[0.2em] text-ink-500">05</p>
+              <h2 className="mt-1.5 font-display text-[20px] tracking-[0.04em]">数据来源</h2>
+            </div>
+            <div className="max-w-2xl">
+              <dl className="text-[12px] leading-[2] text-ink-700">
+                <dt className="mt-1 font-medium">景区名录 · 146 家</dt>
+                <dd className="mb-3 text-ink-500">
+                  宁夏回族自治区文化和旅游厅 A 级旅游景区名录（官方公布名单）；
+                  经度、纬度按景区地址在地图服务中逐条核对，未能核实的留空。
+                </dd>
+
+                <dt className="font-medium">方言词条 · 85 条（银川 29 / 固原 31 / 中卫 25）</dt>
+                <dd className="mb-3 text-ink-500">
+                  《银川方言词典》（张安生，1996）26 条；高顺斌《固原方言四字格词语的结构和语义特点》（2009）21 条；
+                  《守护黄河根脉·乡音乡情：中卫话》21 条；固原方言微信公众平台整理 10 条；
+                  百科条目（银川话、中卫话）7 条。每条均标注来源名称与页码。
+                </dd>
+
+                <dt className="font-medium">美食 20 道 / 路线 8 条</dt>
+                <dd className="mb-3 text-ink-500">
+                  按公开报道与地方饮食资料整理，仅保留做法、口味与搭配等稳定信息，价格与营业时间不收录。
+                </dd>
+
+                <dt className="font-medium">图片</dt>
+                <dd className="text-ink-500">
+                  景区与美食照片来自 Wikimedia Commons（署名见下节）；首页轮播为实地拍摄。
+                </dd>
+              </dl>
+            </div>
+          </section>
+
+          <section className="grid gap-3 border-b border-line py-7 md:grid-cols-[180px_1fr] md:gap-8">
+            <div>
+              <p className="font-mono-ui text-[10px] tracking-[0.2em] text-ink-500">06</p>
               <h2 className="mt-1.5 font-display text-[20px] tracking-[0.04em]">实景图片来源</h2>
             </div>
             <div className="max-w-2xl">
@@ -116,7 +150,7 @@ export default function AboutPage() {
 
           <section className="grid gap-3 border-b border-line py-7 md:grid-cols-[180px_1fr] md:gap-8">
             <div>
-              <p className="font-mono-ui text-[10px] tracking-[0.2em] text-ink-500">06</p>
+              <p className="font-mono-ui text-[10px] tracking-[0.2em] text-ink-500">07</p>
               <h2 className="mt-1.5 font-display text-[20px] tracking-[0.04em]">免责声明</h2>
             </div>
             <ul className="max-w-2xl space-y-1.5 text-[12px] leading-[1.95] text-ink-700">

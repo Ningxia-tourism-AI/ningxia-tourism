@@ -31,8 +31,8 @@ export default function AttractionsPage() {
             <div className="grid grid-cols-2 gap-x-5 gap-y-5">
               <div>
                 <Compass size={18} className="text-vermilion" />
-                <p className="mt-2 font-display text-[34px] leading-none">{attractions.length}</p>
-                <p className="mt-1 font-ui text-[11px] text-ink-500">个精选目的地</p>
+                <p className="mt-2 font-display text-[34px] leading-none">146</p>
+                <p className="mt-1 font-ui text-[11px] text-ink-500">家 A 级景区</p>
               </div>
               <div>
                 <MapPin size={18} className="text-vermilion" />
