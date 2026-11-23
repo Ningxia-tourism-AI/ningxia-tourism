@@ -238,7 +238,7 @@ export function ChatPanel() {
           ))}
         </ol>
         <p className="mt-4 text-[11px] leading-[1.9] text-ink-500">
-          语料：10 个景区、20 道美食、8 条路线、160 条方言词条。不提供实时天气、班次与实时票价。
+          语料：146 家 A 级景区、85 条可溯源方言词条、20 道美食、8 条路线。不提供实时天气、班次与实时票价。
         </p>
       </aside>
     </div>

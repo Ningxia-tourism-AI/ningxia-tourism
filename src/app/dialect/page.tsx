@@ -6,7 +6,7 @@ import { DialectDbPanel } from "@/components/DialectDbPanel";
 export const metadata: Metadata = {
   title: "宁夏方言翻译",
   description:
-    "普通话与银川话双向翻译，160 条宁夏方言词条，含读音提示、例句、区域差异与置信度标注。",
+    "普通话与银川话双向翻译，85 条可溯源方言词条（另附 160 条本地词典），含读音提示、例句与出处。",
 };
 
 export default function DialectPage() {
@@ -18,8 +18,8 @@ export default function DialectPage() {
         description="北部川区属兰银官话，南部更接近中原官话，各地说法并不统一。本页以银川话为主，词条标注区域与置信度，存疑的请以当地说法为准。"
         aside={
           <div className="border-y border-line py-4">
-            <p className="font-display text-[40px] leading-none">160</p>
-            <p className="mt-1 font-ui text-[11px] text-ink-500">条方言词条</p>
+            <p className="font-display text-[40px] leading-none">85</p>
+            <p className="mt-1 font-ui text-[11px] text-ink-500">条可溯源词条</p>
             <p className="mt-3 text-[11px] leading-[1.8] text-ink-500">按区域与可信度标注，不确定的说法会明确提示。</p>
           </div>
         }

@@ -11,7 +11,7 @@ const TAGS = ["全部", "自然风光", "历史人文", "美食", "亲子", "摄
 const PAGE_SIZE = 20;
 
 /**
- * 官方 A 级景区名录（139 条），数据来自 MySQL / FastAPI。
+ * 官方 A 级景区名录（146 条），数据来自 MySQL / FastAPI。
  * 与上方「精选目的地」互补：这里是全量名录，可按城市、等级、标签筛选。
  */
 export function ScenicSpotList() {
@@ -66,7 +66,7 @@ export function ScenicSpotList() {
         <div>
           <h2 className="font-display text-[28px] tracking-[0.04em]">官方名录 · A 级景区</h2>
           <p className="mt-1 font-ui text-[11px] text-ink-500">
-            数据来源：宁夏文化和旅游厅 A 级旅游景区名录，共 {spots.length || 139} 家
+            数据来源：宁夏文化和旅游厅 A 级旅游景区名录，共 {spots.length || 146} 家
           </p>
         </div>
         <span className="font-ui text-[11px] text-ink-500">

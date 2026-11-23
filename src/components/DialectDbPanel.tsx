@@ -12,7 +12,7 @@ const CITIES = ["全部", "银川市", "固原市"];
 
 /**
  * 数据库方言词条（来自 MySQL）+ AI 翻译。
- * 与本地词典并存：本地词典用于离线检索，这里展示已核实的 47 条来源词条。
+ * 与本地词典并存：本地词典用于离线检索，这里展示已核实的 85 条来源词条。
  */
 export function DialectDbPanel() {
   const [words, setWords] = useState<DialectWord[]>([]);
@@ -77,7 +77,7 @@ export function DialectDbPanel() {
         <div>
           <h2 className="font-display text-[28px] tracking-[0.04em]">数据库词条 · AI 翻译</h2>
           <p className="mt-1 font-ui text-[11px] text-ink-500">
-            来自《银川方言词典》《固原方言四字格词语研究》，共 {total || 47} 条，逐条标注页码
+            来自《银川方言词典》《固原方言四字格词语研究》，共 {total || 85} 条，逐条标注页码
           </p>
         </div>
       </div>

@@ -27,7 +27,7 @@ export default function AskPage() {
 
         <div className="mt-12 grid gap-6 border-t border-line pt-8 md:grid-cols-3">
           {[
-            ["语料", "10 个景区、20 道美食、8 条路线、160 条方言词条。"],
+            ["语料", "146 家 A 级景区、85 条可溯源方言词条、10 篇景区介绍、20 道美食、8 条路线。"],
             ["边界", "不回答实时天气、班次、实时票价，也不回答与宁夏文旅无关的问题。"],
             ["模式", "未配置大模型 key 时为本地检索；配置后切换大模型，超纲问题仍然拒答。"],
           ].map(([title, body]) => (

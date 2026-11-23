@@ -10,10 +10,10 @@ import { routes } from "@/content/routes";
 import { dialectEntries } from "@/content/dialect";
 
 const FEATURES = [
-  { href: "/attractions", title: "景区", desc: "沙坡头、沙湖、西夏王陵……十个核心目的地", meta: "10 处" },
+  { href: "/attractions", title: "景区", desc: "沙坡头、沙湖、西夏王陵……十个核心目的地，附全量 A 级名录", meta: "146 家" },
   { href: "/foods", title: "美食", desc: "手抓羊肉、羊杂碎、辣糊糊，吃对地方", meta: "20 道" },
   { href: "/routes", title: "路线", desc: "八条精品线，或按天数自动生成", meta: "8 条 + 规划器" },
-  { href: "/dialect", title: "方言", desc: "普通话与银川话互译，带读音与例句", meta: "160 条" },
+  { href: "/dialect", title: "方言", desc: "普通话与银川话互译，带读音与例句", meta: "85 条" },
   { href: "/ask", title: "问答", desc: "只答站内资料，超范围如实拒答", meta: "本地检索" },
 ];
 
@@ -109,10 +109,11 @@ export default function HomePage() {
       <div className="border-b border-line bg-paper-deep/35">
         <div className="container-page grid grid-cols-2 divide-x divide-line md:grid-cols-4">
           {[
-            ["景区", attractions.length],
+            // 景区与方言取数据库统计（146 家 A 级景区 / 85 条可溯源词条）；美食与路线为站内精选内容
+            ["景区", 146],
             ["美食", foods.length],
             ["路线", routes.length],
-            ["方言词条", dialectEntries.length],
+            ["方言词条", 85],
           ].map(([label, value]) => (
             <div key={String(label)} className="flex items-baseline gap-3 px-4 py-5 first:pl-0 md:px-6">
               <span className="font-display text-[30px] leading-none">{value}</span>
