@@ -1,16 +1,10 @@
 /**
- * 后端 API 客户端。
- * 地址来自 NEXT_PUBLIC_API_BASE_URL；不配置时视为“纯静态模式”。
- * 这个变量会进入前端代码，只能放公开地址，不能放密钥。
+ * 后端地址只来自环境变量 NEXT_PUBLIC_API_BASE_URL：
+ * - 本地开发：.env.local 指向 http://127.0.0.1:8000
+ * - 线上构建：由 GitHub 仓库变量 NEXT_PUBLIC_API_BASE_URL 注入（见 deploy.yml）
+ * 未配置时为空字符串，问答自动退回浏览器本地检索。
  */
-/**
- * 后端地址优先级：
- * 1. 环境变量 NEXT_PUBLIC_API_BASE_URL（本地开发 .env.local 指向 127.0.0.1:8000）
- * 2. 未配置时用云端地址，保证 GitHub Pages 构建后也能连上后端
- */
-export const API_BASE = (
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://ningxia-tourism-api.onrender.com"
-).replace(/\/$/, "");
+export const API_BASE = (process.env.NEXT_PUBLIC_API_BASE_URL ?? "").replace(/\/$/, "");
 
 export function hasApi(): boolean {
   return API_BASE.length > 0;
