@@ -165,7 +165,18 @@ export function ChatPanel() {
                       </div>
                     )}
 
-                    <p className="mt-3 font-ui text-[11px] text-ink-500">
+                    <p className="mt-3 flex flex-wrap items-center gap-2 font-ui text-[11px] text-ink-500">
+                      {turn.response.source && (
+                        <span
+                          className={`border px-1.5 py-0.5 text-[10px] ${
+                            turn.response.source === "db"
+                              ? "border-teal/50 text-teal"
+                              : "border-ochre/50 text-ochre"
+                          }`}
+                        >
+                          {turn.response.source === "db" ? "来源：词库/数据库" : "AI 推测"}
+                        </span>
+                      )}
                       {turn.response.mode === "llm" ? "大模型" : "本地检索"} · 置信度{" "}
                       {Math.round(turn.response.confidence * 100)}%
                     </p>

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState, type FormEvent } from "react";
 import { BUDGET_LEVELS, INTERESTS, planRoute, type BudgetLevel, type Interest, type PlanResult } from "@/lib/planner";
+import { API_BASE, planItinerary, type ItineraryPlan } from "@/lib/api";
+import { ApiPlanView } from "./ApiPlanView";
 import type { Region } from "@/types/content";
 import { REGIONS } from "@/types/content";
 import { ArrowRight, Check, RouteIcon } from "./icons";
@@ -13,9 +15,12 @@ export function PlannerForm() {
   const [interests, setInterests] = useState<Interest[]>(["自然风光", "历史人文"]);
   const [budget, setBudget] = useState<BudgetLevel>("舒适");
   const [result, setResult] = useState<PlanResult | null>(null);
+  const [apiPlan, setApiPlan] = useState<ItineraryPlan | null>(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setResult(null);
+    setApiPlan(null);
   }, [days, regions, interests, budget]);
 
   const preview = result ?? planRoute({ days, regions, interests, budget });
@@ -24,9 +29,30 @@ export function PlannerForm() {
     set(list.includes(value) ? list.filter((x) => x !== value) : [...list, value]);
   };
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setResult(planRoute({ days, regions, interests, budget }));
+    if (!API_BASE) {
+      setResult(planRoute({ days, regions, interests, budget }));
+      return;
+    }
+    setLoading(true);
+    try {
+      const data = await planItinerary({
+        days,
+        areas: regions.length ? regions.map((r) => `${r}市`) : undefined,
+        interests,
+        // 前端「深度」对后端「品质」
+        budget: budget === "深度" ? "品质" : budget,
+      });
+      setApiPlan(data);
+      setResult(null);
+    } catch {
+      // 后端不可用：退回本地规则，页面不会空着
+      setApiPlan(null);
+      setResult(planRoute({ days, regions, interests, budget }));
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -121,7 +147,7 @@ export function PlannerForm() {
           type="submit"
           className="focus-ring mt-6 flex w-full items-center justify-between gap-4 bg-ink px-4 py-3 font-ui text-[12px] tracking-[0.08em] text-paper transition-colors hover:bg-vermilion"
         >
-          生成行程
+          {loading ? "生成中…" : "生成行程"}
           <ArrowRight size={16} />
         </button>
         <p className="mt-3 text-[11px] leading-[1.8] text-ink-500">
@@ -130,6 +156,9 @@ export function PlannerForm() {
       </form>
 
       <div aria-live="polite">
+        {apiPlan ? (
+          <ApiPlanView plan={apiPlan} />
+        ) : (
           <div className={result ? "" : "opacity-90"}>
             <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-4">
               <div>
@@ -210,6 +239,7 @@ export function PlannerForm() {
               </Link>
             </div>
           </div>
+        )}
       </div>
     </div>
   );

@@ -89,14 +89,16 @@ export default function HomePage() {
                 >
                   <RockGlyph kind="sun" className="h-6 w-6" strokeWidth={2.6} />
                 </span>
-                <figcaption className="mt-3 flex items-start justify-between gap-4 font-mono-ui text-[10px] uppercase tracking-[0.14em] text-ink-500">
-                  <span>实景 01 / 沙坡头 · 黄河与腾格里沙漠</span>
-                  <span className="text-right leading-relaxed">
-                    38.47°N
-                    <br />
-                    105.97°E
-                  </span>
-                </figcaption>
+                <figcaption className="mt-4 flex items-end justify-between gap-4">
+                   <p className="font-display text-[15px] leading-[1.95] tracking-[0.04em] text-ink-700">
+                        一半黄沙，一半流水，
+                       <br />
+                    中间是人。
+                   </p>
+  <span className="shrink-0 font-mono-ui text-[10px] uppercase tracking-[0.16em] text-ink-500">
+    宁夏 · 实景图录
+  </span>
+</figcaption>
               </figure>
             </Reveal>
           </div>

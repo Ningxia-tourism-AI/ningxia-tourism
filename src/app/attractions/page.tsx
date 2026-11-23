@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AttractionExplorer } from "@/components/AttractionExplorer";
+import { ScenicSpotList } from "@/components/ScenicSpotList";
 import { attractions } from "@/content/attractions";
 import { ArrowUpRight, Compass, MapPin } from "@/components/icons";
 
@@ -19,8 +20,7 @@ export default function AttractionsPage() {
             <p className="font-ui text-[11px] tracking-[0.14em] text-vermilion">目的地 / DESTINATIONS</p>
             <h1 className="mt-4 max-w-4xl font-display text-[clamp(48px,8vw,92px)] leading-[0.95] tracking-[0.01em]">
               先看沙与河
-              <br />
-              再看山与城
+              <br />再看山与城
             </h1>
             <p className="mt-6 max-w-2xl border-l border-line-strong pl-4 text-[14px] leading-[1.95] text-ink-500">
               从腾格里沙漠到黄河峡谷，从贺兰山岩画到六盘山森林。按城市和类型筛选，优先比较季节、车程与门票。
@@ -32,7 +32,7 @@ export default function AttractionsPage() {
               <div>
                 <Compass size={18} className="text-vermilion" />
                 <p className="mt-2 font-display text-[34px] leading-none">{attractions.length}</p>
-                <p className="mt-1 font-ui text-[11px] text-ink-500">个目的地</p>
+                <p className="mt-1 font-ui text-[11px] text-ink-500">个精选目的地</p>
               </div>
               <div>
                 <MapPin size={18} className="text-vermilion" />
@@ -55,6 +55,7 @@ export default function AttractionsPage() {
 
       <div className="container-page py-8 md:py-10">
         <AttractionExplorer attractions={attractions} />
+        <ScenicSpotList />
       </div>
     </>
   );

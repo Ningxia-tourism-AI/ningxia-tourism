@@ -5,11 +5,14 @@ import { translate, type Direction } from "@/lib/dialect";
 import { dialectEntries } from "@/content/dialect";
 import type { DialectCategory, DialectRegion } from "@/types/content";
 import { dialectCategories, dialectRegions } from "@/content/dialect";
+import { API_BASE, translateDialect } from "@/lib/api";
 
 const CONFIDENCE_LABEL = { 1: "低", 2: "中", 3: "较高" } as const;
 
 export function DialectTranslator() {
   const [direction, setDirection] = useState<Direction>("m2d");
+  const [aiAnswer, setAiAnswer] = useState<string | null>(null);
+  const [aiLoading, setAiLoading] = useState(false);
   const [region, setRegion] = useState<DialectRegion | "">("");
   const [text, setText] = useState("吃饭了吗？今天下午有空吗？");
 
@@ -17,6 +20,20 @@ export function DialectTranslator() {
     () => (text.trim() ? translate(text, direction, region || undefined) : null),
     [text, direction, region],
   );
+
+  const askApi = async () => {
+    const trimmed = text.trim();
+    if (!trimmed || !API_BASE) return;
+    setAiLoading(true);
+    try {
+      const data = await translateDialect(trimmed, region || undefined);
+      setAiAnswer(data.answer);
+    } catch {
+      setAiAnswer("服务暂时不可用，请确认后端已启动。");
+    } finally {
+      setAiLoading(false);
+    }
+  };
 
   return (
     <div className="border border-line bg-paper-light font-ui">
@@ -114,6 +131,25 @@ export function DialectTranslator() {
               )}
 
               <p className="mt-3 text-[11px] leading-[1.85] text-ink-500">{result.note}</p>
+
+              {API_BASE && result.unmatched.length > 0 && (
+                <div className="mt-3 border-t border-line pt-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAiAnswer(null);
+                      void askApi();
+                    }}
+                    disabled={aiLoading}
+                    className="focus-ring border border-line px-3 py-1.5 font-ui text-[11px] text-vermilion transition-colors hover:border-vermilion disabled:opacity-60"
+                  >
+                    {aiLoading ? "查询中…" : "本地未收录，用数据库词库/AI 再查一次"}
+                  </button>
+                  {aiAnswer && (
+                    <p className="mt-2 whitespace-pre-wrap text-[12px] leading-[1.9] text-ink-700">{aiAnswer}</p>
+                  )}
+                </div>
+              )}
             </>
           ) : (
             <p className="mt-3 text-[12px] text-ink-500">输入内容后即时翻译。</p>

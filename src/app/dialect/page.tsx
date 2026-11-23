@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/ui";
 import { DialectTranslator, DialectDictionary } from "@/components/DialectTranslator";
+import { DialectDbPanel } from "@/components/DialectDbPanel";
 
 export const metadata: Metadata = {
   title: "宁夏方言翻译",
@@ -26,6 +27,8 @@ export default function DialectPage() {
 
       <div className="container-page py-10 md:py-14">
         <DialectTranslator />
+
+        <DialectDbPanel />
 
         <section className="mt-14">
           <div className="mb-6 flex items-end justify-between border-b border-line pb-3">

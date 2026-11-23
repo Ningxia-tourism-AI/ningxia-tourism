@@ -122,6 +122,8 @@ export interface AskCitation {
 
 export interface AskResponse {
   answer: string;
+  /** 答案依据：db=命中词库/数据库，ai=模型推测 */
+  source?: "db" | "ai";
   citations: AskCitation[];
   mode: "llm" | "retrieval";
   confidence: number;
