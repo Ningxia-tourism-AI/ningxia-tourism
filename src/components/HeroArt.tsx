@@ -10,7 +10,7 @@ import { assetPath } from "@/lib/asset-path";
  */
 const SLIDES = [
   {
-    src: "/images/main1.jpg",
+    src: "/images/main1.jpg?v=2",
     alt: "沙坡头附近，黄河从腾格里沙漠边缘流过",
     title: "黄河与腾格里",
     subtitle: "沙坡头 · 中卫 / 实景摄影",
@@ -18,7 +18,7 @@ const SLIDES = [
     coord: "37.47°N · 105.00°E",
   },
   {
-    src: "/images/main2.jpg",
+    src: "/images/main2.jpg?v=2",
     alt: "腾格里沙漠中的蒙眼人面雕塑，薄纱被风掀起",
     title: "闭眼的人，替沙漠看天",
     subtitle: "中卫 · 腾格里沙漠 / 漠里安沙漠美术馆",
@@ -26,7 +26,7 @@ const SLIDES = [
     coord: "37.53°N · 104.96°E",
   },
   {
-    src: "/images/main3.jpg",
+    src: "/images/main3.jpg?v=2",
     alt: "黄昏时分，银川览山公园的罗马柱廊被夕阳染成金色，台阶上坐满人",
     title: "罗马不在罗马，在银川",
     subtitle: "银川 · 览山公园 / 黄昏",
@@ -34,7 +34,7 @@ const SLIDES = [
     coord: "38.54°N · 106.22°E",
   },
   {
-    src: "/images/main4.jpg",
+    src: "/images/main4.jpg?v=2",
     alt: "一条柏油公路穿过赭红色荒山，消失在垭口",
     title: "路一直向西",
     subtitle: "宁夏 · 山口公路",
@@ -42,7 +42,7 @@ const SLIDES = [
     coord: "",
   },
   {
-    src: "/images/main5.jpg",
+    src: "/images/main5.jpg?v=2",
     alt: "西夏陵的夯土陵塔矗立在贺兰山前，山脊覆雪，天空呈粉紫色",
     title: "一千年，只是一场日落",
     subtitle: "西夏陵 · 银川 / 贺兰山东麓",

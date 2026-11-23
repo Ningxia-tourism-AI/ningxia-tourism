@@ -13,7 +13,7 @@ export function DestinationArt({
   priority?: boolean;
 }) {
   const glyph = glyphForAttraction(attraction.name, attraction.tags);
-  const imageSrc = assetPath(attraction.image ?? `/images/attractions/${attraction.slug}.jpg`);
+  const imageSrc = assetPath(attraction.image ?? `/images/attractions/${attraction.slug}.jpg?v=2`);
 
   return (
     <div
@@ -61,7 +61,7 @@ export function DishArt({
   food: Food;
   className?: string;
 }) {
-  const imageSrc = assetPath(`/images/foods/${food.slug}.jpg`);
+  const imageSrc = assetPath(`/images/foods/${food.slug}.jpg?v=2`);
 
   return (
     <div
