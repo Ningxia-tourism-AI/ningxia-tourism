@@ -1,11 +1,3 @@
-/**
- * 贺兰山岩画凿刻符号库。
- *
- * 全站视觉母题：以岩画的稚拙凿刻线条替代通用图标与渐变插画。
- * 所有符号统一 48×48 viewBox、stroke 风格，颜色由 currentColor 继承，
- * 线条故意保留手工的不规则感（长短不一的光芒、歪斜的腿），避免机器味的完美几何。
- */
-
 export type RockGlyphKind =
   | "sun"      // 太阳神人面（贺兰口标志图腾）
   | "deer"     // 鹿
@@ -20,7 +12,7 @@ export type RockGlyphKind =
   | "fort";    // 城堡垛口（镇北堡）
 
 const PATHS: Record<RockGlyphKind, string[]> = {
-  // 太阳神：同心圆面 + 双眼一嘴 + 长短不一的放射光芒
+  // 太阳：同心圆面 + 双眼一嘴 + 长短不一的放射光芒
   sun: [
     "M24 15 a9 9 0 1 0 0.1 0",
     "M20 22 v2 M28 22 v2 M21 29 h6",
