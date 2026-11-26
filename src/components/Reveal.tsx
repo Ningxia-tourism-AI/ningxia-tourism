@@ -1,11 +1,6 @@
 "use client";
 
-/**
- * 滚动入场编排：IntersectionObserver 触发，只动 transform / opacity。
- * - 默认进入视口 15% 时播放一次，不重播；
- * - `prefers-reduced-motion: reduce` 时 CSS 层直接显示，JS 无需判断；
- * - 通过 --reveal-delay 错峰（建议组间隔 60–120ms）。
- */
+
 
 import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 
