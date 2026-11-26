@@ -47,7 +47,7 @@ export function PlannerForm() {
       setApiPlan(data);
       setResult(null);
     } catch {
-      // 后端不可用：退回本地规则，页面不会空着
+      // 后端不可用就退回本地规则，页面不会空着
       setApiPlan(null);
       setResult(planRoute({ days, regions, interests, budget }));
     } finally {
