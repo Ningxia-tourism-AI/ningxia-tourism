@@ -24,7 +24,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ── 刊头：大标题出血 + 拓片图版错位重叠 ─────────────── */}
+      {/* ── 刊头：大标题出血 + 拓片图版错位重叠 ── */}
       <section className="grain relative overflow-hidden border-b border-line">
         <div className="container-page relative py-12 md:py-16 lg:py-20">
           <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
@@ -105,7 +105,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 目次数字条 ──────────────────────────────── */}
+      {/* ── 目次数字条 ── */}
       <div className="border-b border-line bg-paper-deep/35">
         <div className="container-page grid grid-cols-2 divide-x divide-line md:grid-cols-4">
           {[
@@ -123,7 +123,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ── 五个入口：图录目录 ──────────────────────── */}
+      {/* ── 五个入口：图录目录 ──*/}
       <section>
         <div className="container-page grid lg:grid-cols-[300px_1fr]">
           <div className="border-line py-10 lg:sticky lg:top-24 lg:self-start lg:border-r lg:py-14 lg:pr-10">
@@ -191,7 +191,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 味觉：名录 + 墨底主味卡 ──────────────────── */}
+      {/* ── 味觉：名录 + 墨底主味卡 ── */}
       <section className="bg-paper-deep/25 py-12 md:py-16">
         <div className="container-page grid gap-12 lg:grid-cols-[1fr_330px] lg:gap-16">
           <div>
@@ -246,7 +246,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 路线 ──────────────────────────────── */}
+      {/* ── 路线 ── */}
       <section className="py-12 md:py-16">
         <div className="container-page">
           <SectionTitle
@@ -273,7 +273,7 @@ export default function HomePage() {
         <PetroRule />
       </div>
 
-      {/* ── 方言 / 问答 ──────────────────────────── */}
+      {/* ── 方言 / 问答 ── */}
       <section className="py-12 md:py-16">
         <div className="container-page grid gap-5 md:grid-cols-2">
           <div className="relative border border-line bg-paper-light p-6 md:p-8">
