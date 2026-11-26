@@ -41,7 +41,7 @@ export function PlannerForm() {
         days,
         areas: regions.length ? regions.map((r) => `${r}市`) : undefined,
         interests,
-        // 前端「深度」对后端「品质」
+        // 前端深度对后端品质
         budget: budget === "深度" ? "品质" : budget,
       });
       setApiPlan(data);
