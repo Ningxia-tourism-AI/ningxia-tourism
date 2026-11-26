@@ -1,12 +1,5 @@
 @import "tailwindcss";
 
-/* ============================================================
-   设计方向：岩画田野图录（Editorial × 贺兰山岩画）
-   - 暖纸底 + 墨黑 + 单一朱砂强调；拓片墨底区块与纸面交替
-   - 正文宋体（中文读物传统），功能层黑体，元信息等宽
-   - 凿刻线母题贯穿：分隔纹样、图腾印章、拓片封面
-   ============================================================ */
-
 @theme {
   /* 纸 / 墨 */
   --color-paper: #f0e7d3;
@@ -26,7 +19,7 @@
   --color-danger: #9d2f24;
   --color-info: #315d76;
 
-  /* 旧 token 保留映射，避免历史页面脱节 */
+  /* 旧 token 保留映射 */
   --color-sand-50: #f0e7d3;
   --color-sand-100: #ebdfc8;
   --color-sand-200: #e0d0b4;
@@ -45,7 +38,7 @@
   --color-ink-700: #382d23;
   --color-ink-900: #1a1410;
 
-  /* 字族：展示与正文皆宋体（中文读物传统），功能层黑体，元信息等宽 */
+
   --font-display: "Songti SC", "STSong", "SimSun-ExtB", "SimSun", "Source Han Serif SC",
     "Noto Serif SC", serif;
   --font-body: "Songti SC", "STSong", "SimSun", "Source Han Serif SC", "Noto Serif SC",
@@ -55,7 +48,6 @@
   --font-mono: ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas,
     "Liberation Mono", monospace;
 
-  /* 动效令牌 */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-fast: 160ms;
   --dur-base: 340ms;
@@ -135,7 +127,7 @@ body {
   color: var(--color-paper-light);
 }
 
-/* ---------- 字族工具类 ---------- */
+
 
 .font-display {
   font-family: var(--font-display);
@@ -145,7 +137,7 @@ body {
   font-family: var(--font-body);
 }
 
-/* 功能层黑体：按钮、导航、标签、表单等小于等于 12px 的 UI 文字使用 */
+
 .font-ui {
   font-family: var(--font-sans);
 }
@@ -155,7 +147,7 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* ---------- 布局 ---------- */
+
 
 .container-page {
   width: 100%;
@@ -170,7 +162,7 @@ body {
   }
 }
 
-/* ---------- 氛围层 ---------- */
+
 
 /* 纸面颗粒：全站铺一层极淡的噪点，替代纯色平铺 */
 body::after {
@@ -213,7 +205,7 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
-/* 凿刻分隔带：替代机械的 border-b，用岩刻线节奏分开区块 */
+
 .petro-rule {
   height: 18px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='18'%3E%3Cg fill='none' stroke='%231a1410' stroke-width='1' opacity='0.5'%3E%3Cpath d='M2 9 h10'/%3E%3Ccircle cx='24' cy='9' r='3.2'/%3E%3Cpath d='M24 3.4 v-2.2 M24 14.6 v2.2 M18.4 9 h-2.2 M29.6 9 h2.2 M36 9 h10'/%3E%3C/g%3E%3C/svg%3E");
@@ -222,9 +214,9 @@ body::after {
   opacity: 0.5;
 }
 
-/* ---------- 印章图腾 ---------- */
 
-/* 方印章：岩画太阳神图腾（SVG 由组件提供，这里管容器形态） */
+
+
 .seal {
   display: grid;
   place-items: center;
@@ -241,7 +233,7 @@ body::after {
     inset 0 0 0 3px rgba(26, 20, 16, 0.25);
 }
 
-/* ---------- 元信息 ---------- */
+
 
 .kicker {
   font-family: var(--font-mono);
@@ -264,7 +256,7 @@ body::after {
   letter-spacing: 0.35em;
 }
 
-/* ---------- 图版 ---------- */
+
 
 /* 双线框图版 */
 .plate {
@@ -354,7 +346,7 @@ body::after {
   color: var(--color-vermilion);
 }
 
-/* ---------- 交互基元 ---------- */
+
 
 .card-hover {
   transition:
@@ -393,10 +385,7 @@ body::after {
   transform: scaleX(1);
 }
 
-/* ---------- 入场编排 ---------- */
-/* 渐进增强：只有 .js（脚本可用）时才先隐藏再等入场；
-   无 JS 环境内容直接可见，不会出现永久空白。 */
-/* 只动 transform / opacity；reduced-motion 下全部直接显示 */
+
 
 .js .reveal {
   opacity: 0;
@@ -420,7 +409,7 @@ body::after {
   }
 }
 
-/* ---------- 跑马灯（岩画符号带） ---------- */
+
 
 @keyframes marquee-x {
   from {
@@ -449,7 +438,7 @@ body::after {
   }
 }
 
-/* ---------- 表单控件 ---------- */
+
 
 input[type="range"] {
   -webkit-appearance: none;
