@@ -4,10 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { assetPath } from "@/lib/asset-path";
 
-/**
- * 想换图/换文案，只改这个数组。
- * coord：只有查到可靠坐标才填；没有就留空，页面显示“—”，不编造。
- */
+
 const SLIDES = [
   {
     src: "/images/main1.jpg?v=2",
